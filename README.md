@@ -7,9 +7,8 @@ Edgar provides tools for Python for integration with the API and key words for t
 ### Installation
 - The program is written in Python 3 which is a flexible language that uses a powerful interpreter for fast development. https://www.python.org/downloads/
 - The library mysql.connector contains functions that allow for the use of SQL syntax to be executed within the Python program. 
-- requests
-- time
-- BeautifulSoup
+- The library requests allows python programs to send requests to servers and use the responding content within the program.
+- The BeautifulSoup library contains functions that parse HTML syntax and organizes filtered content into a manageble XML file that is easier to parse further and retrieve data from
 - pandas
 - hierarchy
 - dendrogram
