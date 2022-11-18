@@ -14,15 +14,40 @@ Edgar provides tools for Python for integration with the API and key words for t
 - The matplotlib library creates mathematic, interactive visualizations for describing statistical data
 
 ### How to Use Edgar Web Scraper
-The program was written, tested, and intended to run in the Jupyter Notebook environment. The user-Agent variable needs to be defined to prevent a 404 error. This can be found by inspecting a webpage's HTML and navigating to the network tab, click on the first file listed, select the header tab and scroll down to find the user agent. The program begins by retrieving a table of investors to retrieve data on securities. The investors that are on that table are completely up to you. The table columns are CIK (unique ID) investor's name, and a description, in that order. However, the program only requires a CIK column and an investor name column. The main cell will extract all the data and created tables in your database you can reference outside of the program as well. The following cell will construct a data frame concatenating all of the data extracted and saving it into a data frame of quantitative data. The two cells create a dendrogram and a histogram from the data fame.
+The program was written, tested, and intended to run in the Jupyter Notebook environment. The user-Agent variable needs to be defined to prevent a 404 error. This can be found by inspecting a webpage's HTML and navigating to the network tab, click on the first file listed, select the header tab and scroll down to find the user agent.
 
-<img src="https://github.com/ipruter/Edgar-Web-Scraper/blob/main/Images/Investments_table.png" height="50%" width="50%" >
+The program begins by retrieving a table of investors to retrieve data on securities. The investors table was manually created and the selection of investers is completely up to you. However, The table requires the CIK number to be the primary key and the column needs to be called CIK.
+
+<img src="https://github.com/ipruter/Edgar-Web-Scraper/blob/main/Images/investor_db.png" height="50%" width="50%" >
+
+The main cell extracts the data of the most recent F-13 filings from each investor and creates and saves it into an "investments" table in the database.
+
+<img src="https://github.com/ipruter/Edgar-Web-Scraper/blob/main/Images/Investments_table.png" height="40%" width="40%">
+
+The program displays the directories being searched and the data extracted that is held in memory
+
 <img src="https://github.com/ipruter/Edgar-Web-Scraper/blob/main/Images/cctrading_connections.png" height="50%" width="50%" >
+
+Cell four makes queries of the investors table and a table of investments that were 7.5% or greater of each investors portfolio
+
 <img src="https://github.com/ipruter/Edgar-Web-Scraper/blob/main/Images/cctrading_investments.png" height="50%" width="50%" >
 <img src="https://github.com/ipruter/Edgar-Web-Scraper/blob/main/Images/cctrading_safe_investments.png" height="50%" width="50%" >
+
+Cell five constructs a data frame concatenating all of the data extracted and saving it into a data frame of quantitative data. 
+
+Cell six creates a dendrogram for identifying clusters in the data
+
 <img src="https://github.com/ipruter/Edgar-Web-Scraper/blob/main/Images/dendrogram.png" height="50%" width="50%" >
+
+Cell seven creates a histogram for a more intuitive representation of the significance of certain investments
+
 <img src="https://github.com/ipruter/Edgar-Web-Scraper/blob/main/Images/histogram.png" height="50%" width="50%" >
-<img src="https://github.com/ipruter/Edgar-Web-Scraper/blob/main/Images/investor_db.png" height="50%" width="50%" >
 
 ### How to Test Edgar Web Scraper
 Anytime the program makes a connection to a page on Edgar is displays the status code. The code returned should be a 200 or else there may be a connection issues or denied access to the web page.
+
+Test with investors that you know have F-13 filings. A failer to produce data does not mean the program didn't work but the program should display data in real time as it's scraping if the investor has filed an F-13 document.
+
+After running cell three, the program should have created an investors table in the database. Any investment that is 7.5% or greater of the total portfolio of a single investor should have a 1 in the SafeInvestment column. This should be tested with an investor who have investments greater, but close to 7.5% to test the boundary. 
+
+Cells six and seven should produce graphs
