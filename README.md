@@ -16,7 +16,7 @@ Edgar provides tools for Python for integration with the API and key words for t
 ### How to Use Edgar Web Scraper
 The program was written, tested, and intended to run in the Jupyter Notebook environment. The user-Agent variable needs to be defined to prevent a 404 error. This can be found by inspecting a webpage's HTML and navigating to the network tab, click on the first file listed, select the header tab and scroll down to find the user agent.
 
-The program begins by retrieving a table of investors to retrieve data on securities. The investors table was manually created and the selection of investers is completely up to you. However, The table requires the CIK number to be the primary key and the column needs to be called CIK.
+The program begins by retrieving a table of investors to retrieve data on securities. The investors table was manually created and the selection of investors  is completely up to you. However, the table requires the CIK number to be the primary key and the column needs to be called CIK.
 
 <img src="https://github.com/ipruter/Edgar-Web-Scraper/blob/main/Images/investor_db.png" height="50%" width="50%" >
 
@@ -46,7 +46,7 @@ Cell seven creates a histogram for a more intuitive representation of the signif
 ### How to Test Edgar Web Scraper
 Anytime the program makes a connection to a page on Edgar is displays the status code. The code returned should be a 200 or else there may be a connection issues or denied access to the web page.
 
-Test with investors that you know have F-13 filings. A failer to produce data does not mean the program didn't work but the program should display data in real time as it's scraping if the investor has filed an F-13 document.
+Test with investors that you know have F-13 filings. A failure to produce data does not mean the program didn't work but the program should display data in real time as it's scraping if the investor has filed an F-13 document.
 
 After running cell three, the program should have created an investors table in the database. Any investment that is 7.5% or greater of the total portfolio of a single investor should have a 1 in the SafeInvestment column. This should be tested with an investor who have investments greater, but close to 7.5% to test the boundary. 
 
